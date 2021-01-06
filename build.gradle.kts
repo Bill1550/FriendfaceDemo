@@ -1,12 +1,19 @@
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
+val serializationVersion by extra("1.0.1")
+//val kotlinVersion by extra("1.4.21")
+
 plugins {
     kotlin("multiplatform") version "1.4.21"
+    kotlin( "plugin.serialization") version "1.4.21"
     application
 }
 
 group = "me.billh"
 version = "1.0-SNAPSHOT"
+
+
+
 
 repositories {
     jcenter()
@@ -44,7 +51,11 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation( "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
@@ -73,6 +84,9 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-js"))
             }
+        }
+        all {
+            languageSettings.enableLanguageFeature("InlineClasses")
         }
     }
 }
