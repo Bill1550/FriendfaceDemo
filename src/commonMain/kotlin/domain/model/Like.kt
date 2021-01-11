@@ -1,5 +1,7 @@
 package domain.model
 
+import domain.model.serialization.InstantSerializer
+import kotlinx.datetime.Instant
 import kotlinx.serialization.SerialInfo
 import kotlinx.serialization.Serializable
 
@@ -9,6 +11,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Like(
     val postId: PostId,
+
     val user: String,       // TODO strongly type users.
-    val date: String        // TODO include Klock
+
+    @Serializable( with = InstantSerializer::class )
+    val date: Instant
 )

@@ -12,15 +12,14 @@ plugins {
 group = "me.billh"
 version = "1.0-SNAPSHOT"
 
-
-
-
 repositories {
     jcenter()
     mavenCentral()
     maven { url = uri("https://dl.bintray.com/kotlin/kotlin-js-wrappers") }
     maven { url = uri("https://dl.bintray.com/kotlin/kotlinx") }
     maven { url = uri("https://dl.bintray.com/kotlin/ktor") }
+    maven(url = "https://kotlin.bintray.com/kotlinx/") // for KotlinX datetime
+
 }
 
 kotlin {
@@ -54,6 +53,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation( "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.1.1")
             }
         }
         val commonTest by getting {

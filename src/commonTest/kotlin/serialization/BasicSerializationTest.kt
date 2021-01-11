@@ -2,6 +2,7 @@ package serialization
 
 import domain.model.Like
 import domain.model.PostId
+import kotlinx.datetime.Instant
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -30,10 +31,10 @@ class BasicSerializationTest {
         val likeObj = Like(
             postId = PostId(123),
             user = "Fred",
-            date = "2015-01-01T01:00:00.000Z"
+            date = Instant.parse("2015-01-01T01:00:00Z")
         )
 
-        val likeJson = """{"postId":{"value":123},"user":"Fred","date":"2015-01-01T01:00:00.000Z"}"""
+        val likeJson = """{"postId":{"value":123},"user":"Fred","date":"2015-01-01T01:00:00Z"}"""
 
         println( jsonPretty.encodeToString(likeObj))
 
