@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
 val serializationVersion by extra("1.0.1")
+val ktorVersion by extra( "1.4.0" )
 //val kotlinVersion by extra("1.4.21")
 
 plugins {
@@ -64,14 +65,16 @@ kotlin {
         }
         val jvmMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-server-netty:1.4.0")
-                implementation("io.ktor:ktor-html-builder:1.4.0")
+                implementation("io.ktor:ktor-server-netty:$ktorVersion")
+                implementation("io.ktor:ktor-html-builder:$ktorVersion")
+                implementation( "io.ktor:ktor-serialization:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.2")
             }
         }
         val jvmTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
+                implementation("io.ktor:ktor-server-tests:$ktorVersion")
             }
         }
         val jsMain by getting {

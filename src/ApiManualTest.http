@@ -1,0 +1,4 @@
+// Manual tests of the API that can be conveniently run from inside the IDE.
+
+GET http://127.0.0.1:8080/api/like/42
+Content-Type: application/json

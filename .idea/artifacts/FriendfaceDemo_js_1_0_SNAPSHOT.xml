@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="FriendfaceDemo-js-1.0-SNAPSHOT">
-    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <output-path>D:\repos\multiplatform\FriendfaceDemo\build\libs</output-path>
     <root id="archive" name="FriendfaceDemo-js-1.0-SNAPSHOT.jar">
       <element id="module-output" name="FriendfaceDemo.jsMain" />
     </root>
