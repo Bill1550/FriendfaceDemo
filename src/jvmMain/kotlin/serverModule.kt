@@ -12,7 +12,7 @@ import kotlinx.datetime.Clock
 import kotlinx.html.HTML
 import kotlinx.serialization.json.Json
 
-fun Application.module(testing: Boolean = false ) {
+fun Application.serverModule(testing: Boolean = false ) {
     install( ContentNegotiation) {
         json(
             Json {

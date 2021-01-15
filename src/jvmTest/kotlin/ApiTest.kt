@@ -2,7 +2,7 @@ import domain.model.Like
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import kotlinx.serialization.json.Json
-import org.junit.Test
+import org.testng.annotations.Test
 import kotlin.test.assertEquals
 
 class ApiTest {
@@ -12,7 +12,7 @@ class ApiTest {
      */
     @Test
     fun testGetLike() {
-        withTestApplication({ module(testing = true)}) {
+        withTestApplication({ serverModule(testing = true)}) {
 
             handleRequest(HttpMethod.Get, "/api/like/42").apply {
                 println("response, status=${response.status()}, content=${response.content}")
@@ -27,7 +27,7 @@ class ApiTest {
 
     @Test
     fun testGetLikeBadId() {
-        withTestApplication({ module(testing = true)}) {
+        withTestApplication({ serverModule(testing = true)}) {
 
             handleRequest(HttpMethod.Get, "/api/like/bad").apply {
                 println("response, status=${response.status()}, content=${response.content}")
